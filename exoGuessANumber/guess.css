@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;  /* Vous pouvez choisir entre '3em' ou 'larger', mais il ne faut pas les deux. */
+}
+
+#monBouton {
+    border: solid black 5px; /* Ajoutez une épaisseur de bordure si nécessaire */
+    border-radius: 50px; /* Correction de 'border-radius' */
+    width: 10%;  /* Appliquez une largeur de 50% */
+    padding: 20px; /* Ajoutez un peu d'espacement à l'intérieur du bouton */
+    cursor: pointer; /* Ajoute un curseur pointer pour indiquer que c'est un bouton */
+}
