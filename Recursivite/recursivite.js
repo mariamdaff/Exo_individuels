@@ -1,63 +1,53 @@
 //Contexte general
-import {dossierPrincipal} from './object.js';
+import { dossierPrincipal } from './object.js';
 
-//Contexte afficherDossiers
-function afficherDossiers(dossierAAfficher) {
-  //  let resultat = dossierAAfficher.nom;
-   console.log('> 🗂️'+dossierAAfficher.nom);
-  // return resultat
+function afficherDossiers(dossier) {
+    const dossierAAfficher = dossier.nom; 
+    console.log('>🗂️ ' + dossierAAfficher); 
 }
 
-//Contexte afficherDossierIteratif
-function afficherDossierIteratif(dossierIteratif) {
-    afficherDossiers(dossierIteratif);
-    for(let i = 0; i < dossierIteratif.contenu.length; i++){
-        console.log( dossierIteratif.contenu[i].nom);
-       const dossier = dossierIteratif.contenu[i] ;
+function afficherDossierIteratif(dossier) {
+    afficherDossiers(dossier); 
+    const contenuDossier = dossier.contenu; 
+
+    for (let i = 0; i < contenuDossier.length; i++) {
        
-       console.log(dossier.nom) ;
-       console.log(dossier.contenu) ;
-    }
-}
- //Contexte general
- afficherDossierIteratif(dossierPrincipal)
+        if (contenuDossier[i].contenu && Array.isArray(contenuDossier[i].contenu)) {
+            console.log(' 📁 ' + contenuDossier[i].nom); 
+        } else {
+            console.log(' 📄 ' + contenuDossier[i].nom); 
+        }
 
-function afficherDossierRecursif(dossierRecursif) {
-    afficherDossiers(dossierRecursif);
-    if (dossierRecursif.contenu ) {
-        for (let i = 0; i < dossierRecursif.contenu.length; i++) {
-            const element = dossierRecursif.contenu[i];
-            console.log(element.nom);
+        if (contenuDossier[i].contenu && Array.isArray(contenuDossier[i].contenu)) {
+            const sousDossier = contenuDossier[i].contenu;
+        for (let j = 0; j < sousDossier.length; j++) {
+               
+        if (sousDossier[j].contenu && Array.isArray(sousDossier[j].contenu)) {
+                    console.log(' 📁 ' + sousDossier[j].nom); 
+        } else {
+                    console.log(' 📄 ' + sousDossier[j].nom); 
+                }
 
-            // if (element.type === "dossier") {
-            //     afficherDossierRecursif(element);
-            // }
+        if (sousDossier[j].contenu && Array.isArray(sousDossier[j].contenu)) {
+                    const sousSousDossier = sousDossier[j].contenu;
+         for (let k = 0; k < sousSousDossier.length; k++) {
+                        console.log(' 📄 ' + sousSousDossier[k].nom); 
+                    }
+                }
+            }
         }
     }
 }
-afficherDossierRecursif(dossierPrincipal) 
+afficherDossierIteratif(dossierPrincipal);
 
 
-
-// const dossierSimplifier = {
-//     nom: 'Ada',
-//     contenu: {
-//         nom: 'Projets collectifs Ada'}}
-
-// //afficherDossierRecursifSimplifier(dossierSimplifier)
-
-// //Ada
-// //Projets collectifs Ada
-// //Recursif
-// //1 seul console.log
-// function afficherDossierRecursifSimplifier(dossierSimplifier){
-//   const dossier = dossierSimplifier.nom
-//   console.log(dossier)
-  
-//     for(let i = 0; i < dossier.contenu; i++ ){
-//         if (dossier.contenu)
-//          afficherDossierRecursifSimplifier(dossier)
-//     }
-// }
-// afficherDossierRecursifSimplifier(dossierSimplifier)
+function afficherDossierRecursif(dossier){
+    afficherDossiers(dossier)
+    if(dossier.contenu && Array.isArray(dossier.contenu) )
+        dossier.contenu.forEach(element => {
+           afficherDossierRecursif(element) 
+        });    
+}
+afficherDossierRecursif(dossierPrincipal );
+ 
 
