@@ -3,10 +3,10 @@ const resultat = document.querySelector('.grid-result')
 document.querySelectorAll('.grid-item').forEach(bouton => {
     bouton.addEventListener('click', () => {
         if(bouton.innerHTML ==="suppr"){
-            resultat.innerHTML = ' '
+            resultat.innerHTML = ''
         }
         else if(bouton.innerHTML ==="="){
-        resultat.innerHTML = effectuerMultiplication()
+        resultat.innerHTML = effectuerAddition(resultat.innerHTML)
        }else{
         resultat.innerHTML += bouton.innerHTML
        }
@@ -18,15 +18,13 @@ const toNumber = (membre)=>{
         return Number(membre)
       }
 
-function effectuerMultiplication(){
-    const calcul = resultat.innerHTML// calcul = 5+3*4
+function effectuerMultiplication(calcul){
     let resultatDuCalculPrecedent = 1
     const membres = calcul.split("*") // 5+3,4
         .forEach((membre)=>{
-            const resultatAddition =  effectuerAddition(membre)
-
-            resultatDuCalculPrecedent = resultatDuCalculPrecedent * resultatAddition
-        
+          
+         resultatDuCalculPrecedent = membre* resultatDuCalculPrecedent 
+         
         })
 
     return resultatDuCalculPrecedent
@@ -38,9 +36,12 @@ function effectuerAddition(calcul) {
     let resultatDuCalculPrecedent =0
 
     const membres = calcul.split("+")
-        .map(toNumber)
+    
         .forEach((membre)=>{
-            resultatDuCalculPrecedent = membre + resultatDuCalculPrecedent
+
+             const resultatMultiplication = effectuerMultiplication(membre)
+
+            resultatDuCalculPrecedent = resultatMultiplication + resultatDuCalculPrecedent
 
 
         })
@@ -49,4 +50,6 @@ function effectuerAddition(calcul) {
     
 }
 
- 
+ function effectuerSoustraction(calcul) {
+
+ }
