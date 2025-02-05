@@ -28,11 +28,12 @@ header {
     border: 2px solid darkblue;
     border-radius: 25%;
     padding: 1.5em;
-    
+    box-shadow: inset;
+    transition: box-shadow 0.3s ease;
    
 }
 
-.grid-item1{
+.grid-result{
     background-color: rgb(200, 210, 213);
     border: 8px solid darkblue;
     grid-column: 1 /-1;
@@ -41,5 +42,18 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+
+}
+
+#supprimer{
+    background-color: lightblue;
+    border: 5px solid darkblue; 
+    grid-column: 1/ -1; 
+    grid-row: 8/ 9; 
+    /* border-radius: 25%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

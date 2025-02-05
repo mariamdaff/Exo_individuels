@@ -1,29 +1,52 @@
-const resultat = document.querySelector('.grid-item1')
+const supprimer =document.querySelector('.grid-supp')
+const resultat = document.querySelector('.grid-result')
 document.querySelectorAll('.grid-item').forEach(bouton => {
     bouton.addEventListener('click', () => {
-       if(bouton.innerHTML ==="="){
-        resultat.innerHTML = effectuerUnCalcul()
+        if(bouton.innerHTML ==="suppr"){
+            resultat.innerHTML = ' '
+        }
+        else if(bouton.innerHTML ==="="){
+        resultat.innerHTML = effectuerMultiplication()
        }else{
         resultat.innerHTML += bouton.innerHTML
        }
     });
 });
+
+
 const toNumber = (membre)=>{
         return Number(membre)
       }
 
-function effectuerUnCalcul(){
-    const calcul = resultat.innerHTML
-    console.log("effectuerUnCalcul")
-
-    let resultatDuCalculPrecedent= 0
-    
-    const membres = calcul.split('+')
-        .map(toNumber)
+function effectuerMultiplication(){
+    const calcul = resultat.innerHTML// calcul = 5+3*4
+    let resultatDuCalculPrecedent = 1
+    const membres = calcul.split("*") // 5+3,4
         .forEach((membre)=>{
-            resultatDuCalculPrecedent = membre + resultatDuCalculPrecedent
+            const resultatAddition =  effectuerAddition(membre)
+
+            resultatDuCalculPrecedent = resultatDuCalculPrecedent * resultatAddition
+        
         })
 
     return resultatDuCalculPrecedent
     
 }
+
+ 
+function effectuerAddition(calcul) {
+    let resultatDuCalculPrecedent =0
+
+    const membres = calcul.split("+")
+        .map(toNumber)
+        .forEach((membre)=>{
+            resultatDuCalculPrecedent = membre + resultatDuCalculPrecedent
+
+
+        })
+
+    return resultatDuCalculPrecedent
+    
+}
+
+ 
