@@ -10,7 +10,7 @@ function add(n1, n2){
 function add_array(arr, n)  {
     return arr.map(x => x + n);
   };
-  console.log(add_array([3, 4, 1, 10], 1));
+  
 
  
 function factorielle(n){
@@ -21,7 +21,7 @@ function mesurerExecution(nom, fonction, ...args) {
     let resultat = fonction(...args);
     let fin = now();
     console.log(`${nom}(${args}) = ${resultat}`);
-    console.log(`Durée : ${(fin - debut).toFixed(4)} ms\n`)
+    console.log(`L'exécution de cette Operation a duré : ${(fin - debut).toFixed(4)} ms\n`)
 }
   
 mesurerExecution("add", add, 5, 10);
