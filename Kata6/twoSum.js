@@ -1,0 +1,23 @@
+function twoSum(nombre, target){
+    for(let i = 0; i < nombre.length; i++){
+        for(let j = i + 1; j < nombre.length ; j++){
+            if(nombre[i] + nombre[j] === target){
+               return [i, j]
+            }
+        }
+    } return [];
+}
+// Exemple 1
+const numbers1 = [2, 7, 11, 15];
+const target1 = 9;
+console.log(twoSum(numbers1, target1));
+// Exemple 2
+const numbers2 = [3, 2, 4]
+const target2 = 6
+console.log(twoSum(numbers2, target2));
+// retourne [1, 2]
+// Exemple 3
+const numbers3 = [3, 3]
+const target3 = 6
+console.log(twoSum(numbers3, target3));
+// retourne [0, 1]

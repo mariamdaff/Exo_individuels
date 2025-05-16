@@ -50,6 +50,12 @@ function effectuerAddition(calcul) {
     
 }
 
- function effectuerSoustraction(calcul) {
+console.log("5-3", effectuerSoustraction("5-3"))
+console.log("5-10", effectuerSoustraction("5-10"))
+// etape 2
+console.log("5-3+2", effectuerSoustraction("5-3+2"))
+console.log("5-3*5", effectuerSoustraction("5-3*5"))
 
+ function effectuerSoustraction(calcul) {
+        return 0;
  }

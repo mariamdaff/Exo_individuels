@@ -42,6 +42,3 @@ texte_original = "généralement, on utilise un texte en faux latin ( le texte n
 texte_compresse = compresser_texte(texte_original, mon_dictionnaire)
 
 print("Texte compressé :\n", texte_compresse)
-
-#function pour decompresser mots
-

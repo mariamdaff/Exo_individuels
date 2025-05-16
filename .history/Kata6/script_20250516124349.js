@@ -1,0 +1,81 @@
+function fizzbuzz(nombre) {
+    let answer = [];
+    for (let i = 1; i <= nombre; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            answer.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            answer.push("Fizz");
+        } else if (i % 5 === 0) {
+            answer.push("Buzz");
+        } else {
+            answer.push(`${i}`);
+        }
+    }
+    return answer;
+}
+
+console.log(fizzbuzz(3));
+console.log(fizzbuzz(5));
+console.log(fizzbuzz(15));
+
+function twoSum(nombre, target){
+    for(let i = 0; i < nombre.length; i++){
+        for(let j = i + 1; j < nombre.length ; j++){
+            if(nombre[i] + nombre[j] === target){
+               return [i, j]
+            }
+        }
+    } return [];
+}
+// Exemple 1
+const numbers1 = [2, 7, 11, 15];
+const target1 = 9;
+console.log(twoSum(numbers1, target1));
+// Exemple 2
+const numbers2 = [3, 2, 4]
+const target2 = 6
+console.log(twoSum(numbers2, target2));
+// retourne [1, 2]
+// Exemple 3
+const numbers3 = [3, 3]
+const target3 = 6
+console.log(twoSum(numbers3, target3));
+// retourne [0, 1]
+
+function isValid(str) {
+    const pile = [];
+    const correspondance = {
+      ')': '(',
+      '}': '{',
+      ']': '['
+    };
+  
+    for (let caractere of str) {
+      if (caractere === '(' || caractere === '{' || caractere === '[') {
+        pile.push(caractere);
+      } else if (caractere === ')' || caractere === '}' || caractere === ']') {
+        if (pile.length === 0 || pile[pile.length - 1] !== correspondance[caractere]) {
+          return false;
+        }
+        pile.pop();
+      }
+    }
+  
+        return pile.length === 0;
+  }
+  const str1 = "()"
+console.log(isValid(str1));
+// retourne `true`
+    
+const str2 = "()[]{}"
+console.log(isValid(str2));
+// retourne `true`
+    
+const str3= "(]"
+console.log(isValid(str3));
+// retourne `false`
+    
+const str4 = "([])"
+console.log(isValid(str4));
+// retourne `true`
+  
